@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-
+from . import models
 
 def icecream_list(request):
-    return HttpResponse('Здесь будет список сортов мороженого')
+    db_query = models.icecream_db
+    icecreams = f'Список мороженого: {db_query}'
+    return HttpResponse(icecreams)
