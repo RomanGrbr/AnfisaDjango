@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('Anfisa for Friends -- Hello, world! -- ¯\(°:°)/¯')
+    return render(request, 'homepage/index.html')
