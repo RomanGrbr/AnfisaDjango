@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Анфиса для друзей</h1>
-    <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
-    <br>
-    <p>
-        {{ icecreams|safe }}
-        <br>
-        <br>
-        <!-- Здесь надо вывести список друзей из словаря context -->
-          {{friends |safe}}
-        <a href="/icecream/">К списку мороженого</a>
+<html>
+  <head>
+      <meta charset="UTF-8">
+  </head>
+  <body>
+      <h1>Анфиса для друзей</h1>
+       <img src="https://code.s3.yandex.net/backend-developer/Anfisa/24.png">
+       <br>
+      <p>
+        {{ friend_output|safe }}
       </p>
-</body>
+      <p>
+        {{ city_weather|safe }}
+      </p>
+      <form method="post" action="/">
+        <h2>Выберите друга</h2>
+        {{ friends|safe }}
+        <br>
+        <input type="submit" value="Узнать город и погоду">
+      </form>
+      <p>
+        {{ icecreams|safe }}
+      </p>
+  </body>
 </html>
