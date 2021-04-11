@@ -32,3 +32,16 @@ def what_temperature(weather):
         except ValueError:
             continue
     return parsed_temperature
+
+
+def what_conclusion(parsed_temperature):
+    try:
+        temperature = int(parsed_temperature)
+        if temperature < 18:
+            return 'Берегись простуды, слишком холодно, не сезон для мороженого! '
+        elif temperature >= 18 and temperature <= 27:
+            return 'Порция мороженого сейчас будет в самый раз!'
+        else:
+            return 'Жарко, как в Африке, нужны две порции!'
+    except ValueError:
+        return 'Не могу узнать погоду. Решай по обстоятельствам: съесть ли мороженое сразу или отложить до жары.'
