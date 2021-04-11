@@ -2,7 +2,7 @@ import sys
 from django.shortcuts import render
 from icecream.models import icecream_db
 from anfisafriends.models import friends_db
-from anfisafriends.services import what_weather
+from anfisafriends.services import what_weather, what_temperature
 
 
 def index(request):
@@ -11,6 +11,7 @@ def index(request):
     city_weather = ''
     friend_output = ''
     selected_icecream = ''
+    parsed_temperature = ''
 
     for friend in friends_db:
         friends += (f'<input type="radio" name="friend"'
@@ -29,6 +30,7 @@ def index(request):
         city = friends_db[selected_friend]
         weather = what_weather(city)
 
+        parsed_temperature = what_temperature(weather)
         friend_output = f'{selected_friend}, тебе прислали {selected_icecream}!'
         city_weather = f'В городе {city} погода: {weather}'
 
@@ -37,5 +39,6 @@ def index(request):
         'friends': friends,
         'friend_output': friend_output,
         'city_weather': city_weather,
+        'parsed_temperature': parsed_temperature,
     }
     return render(request, 'homepage/index.html', context)

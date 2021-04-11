@@ -13,14 +13,16 @@
       <p>
         {{ city_weather }}
       </p>
+      <p>
+        Числовое значение температуры: {{ parsed_temperature }}
+      </p>
       <form action="/" method="post">
         <h2>Выберите друга</h2>
-            {{ friends|safe }}
+          {{ friends|safe }}
         <h2>Выберите мороженое</h2>
-            {{ icecreams|safe }}
+          {{ icecreams|safe }}
         <br>
-          <input type="submit" value="Угостить">
+        <input type="submit" value="Угостить">
       </form>
   </body>
 </html>
-

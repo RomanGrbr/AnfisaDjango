@@ -15,3 +15,20 @@ def what_weather(city):
         return response.text.strip()
     else:
         return '<ошибка на сервере погоды. попробуйте позже>'
+
+
+def what_temperature(weather):
+    if (weather == '<сетевая ошибка>' or
+        weather == '<ошибка на сервере погоды. попробуйте позже>'):
+        return weather
+    temperature = weather.split()[1]
+    parsed_temperature = ''
+    for char in temperature:
+        if char == '.' or char == '-':
+            parsed_temperature += char
+        try:
+            num = int(char)
+            parsed_temperature += char
+        except ValueError:
+            continue
+    return parsed_temperature
